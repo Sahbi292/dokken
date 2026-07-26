@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dokken Café</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Poppins,sans-serif;
+
+    background:#d8c0a0;
+    background-image:url("https://www.transparenttextures.com/patterns/old-wall.png");
+
+}
+
+.container{
+
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+
+}
+
+.logo{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+.logo img{
+
+    width:130px;
+
+}
+
+.logo h1{
+
+    font-family:'Playfair Display';
+    font-size:42px;
+
+}
+
+.menu{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+
+}
+
+.column{
+
+padding:20px;
+
+}
+
+.column h2{
+
+font-size:45px;
+font-family:'Playfair Display';
+margin-bottom:25px;
+
+}
+
+.item{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:18px 0;
+font-size:25px;
+font-weight:600;
+
+}
+
+.item span{
+
+flex:1;
+
+}
+
+.dots{
+
+border-bottom:4px dotted #000;
+margin:0 15px;
+
+}
+
+.price{
+
+width:70px;
+text-align:right;
+
+}
+
+.middle-line{
+
+position:absolute;
+left:50%;
+top:230px;
+bottom:250px;
+width:2px;
+background:#444;
+
+}
+
+.breakfast{
+
+margin-top:70px;
+text-align:center;
+
+}
+
+.breakfast h2{
+
+font-size:50px;
+font-family:'Playfair Display';
+
+}
+
+.breakfast p{
+
+font-size:40px;
+margin-top:10px;
+
+}
+
+footer{
+
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:35px;
+font-size:22px;
+font-weight:600;
+padding-bottom:30px;
+
+}
+
+.footer-brand{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.footer-brand svg,
+.footer-link svg{
+
+width:22px;
+height:22px;
+fill:currentColor;
+flex-shrink:0;
+display:block;
+
+}
+
+.footer-link{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:inherit;
+text-decoration:none;
+
+}
+
+.footer-link:hover{
+
+text-decoration:underline;
+
+}
+
+@media(max-width:800px){
+
+.menu{
+
+grid-template-columns:1fr;
+
+}
+
+.middle-line{
+
+display:none;
+
+}
+
+.column h2{
+
+font-size:35px;
+
+}
+
+.item{
+
+font-size:20px;
+
+}
+
+.breakfast h2{
+
+font-size:35px;
+
+}
+
+.breakfast p{
+
+font-size:28px;
+
+}
+
+footer{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+
+<img src="dokken.png">
+
+
+
+</div>
+
+<div class="middle-line"></div>
+
+<div class="menu">
+
+<div class="column">
+
+<h2>☕ Boissons</h2>
+
+<div class="item">
+<span>Express</span>
+<div class="dots"></div>
+<div class="price">3 DT</div>
+</div>
+
+<div class="item">
+<span>Cappuccino</span>
+<div class="dots"></div>
+<div class="price">5 DT</div>
+</div>
+
+<div class="item">
+<span>Café Crème</span>
+<div class="dots"></div>
+<div class="price">5 DT</div>
+</div>
+
+<div class="item">
+<span>Américain</span>
+<div class="dots"></div>
+<div class="price">4 DT</div>
+</div>
+
+<div class="item">
+<span>Boisson gazeuse</span>
+<div class="dots"></div>
+<div class="price">4 DT</div>
+</div>
+
+<div class="item">
+<span>Jus Fraise</span>
+<div class="dots"></div>
+<div class="price">7 DT</div>
+</div>
+
+<div class="item">
+<span>Citronnade</span>
+<div class="dots"></div>
+<div class="price">6 DT</div>
+</div>
+
+</div>
+
+<div class="column">
+
+<h2>🍰 Pâtisserie</h2>
+
+<div class="item">
+<span>Cheesecake</span>
+<div class="dots"></div>
+<div class="price">9 DT</div>
+</div>
+
+<div class="item">
+<span>Tiramisu</span>
+<div class="dots"></div>
+<div class="price">9 DT</div>
+</div>
+
+<div class="item">
+<span>Fraisier</span>
+<div class="dots"></div>
+<div class="price">8 DT</div>
+</div>
+
+<div class="item">
+<span>Croissant</span>
+<div class="dots"></div>
+<div class="price">3 DT</div>
+</div>
+
+<div class="item">
+<span>Cookies</span>
+<div class="dots"></div>
+<div class="price">4 DT</div>
+</div>
+
+<div class="item">
+<span>Fondant</span>
+<div class="dots"></div>
+<div class="price">8 DT</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="breakfast">
+
+<h2>🥪 Formule</h2>
+
+<p>P'tit Déj</p>
+
+</div>
+
+<footer>
+
+<a class="footer-link footer-brand" href="https://www.facebook.com/DokkenCoffeeShop" target="_blank" rel="noopener noreferrer">
+
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+<path d="M22 12.1C22 6.5 17.5 2 11.9 2S2 6.5 2 12.1C2 17.1 5.7 21.2 10.5 22v-7h-2.3v-2.9h2.3V9.9c0-2.3 1.4-3.5 3.4-3.5 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.8h2.5L15.5 15h-2.1v7C18.3 21.2 22 17.1 22 12.1z"/>
+
+</svg>
+
+<span>Dokken دكان</span>
+
+</a>
+
+<a class="footer-link" href="https://www.instagram.com/dokken_cafe/" target="_blank" rel="noopener noreferrer">
+
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 2.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 6.5zm0 2A2.5 2.5 0 1 0 14.5 11 2.5 2.5 0 0 0 12 8.5zm4.75-2.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/>
+
+</svg>
+
+<span>dokken_cafe</span>
+
+</a>
+
+</footer>
+
+</div>
+
+</body>
+</html>
