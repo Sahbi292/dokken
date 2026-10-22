@@ -18,8 +18,8 @@
 body{
 
     font-family:Poppins,sans-serif;
-
-    background:#d8c0a0;
+    color:#2d2018;
+    background:linear-gradient(180deg, #e9d2b0 0%, #d5b08c 100%);
     background-image:url("https://www.transparenttextures.com/patterns/old-wall.png");
 
 }
@@ -30,6 +30,11 @@ body{
     max-width:1200px;
     margin:auto;
     padding:30px;
+    background:rgba(255,248,240,0.18);
+    border:1px solid rgba(58,42,31,0.15);
+    border-radius:24px;
+    box-shadow:0 18px 50px rgba(66,39,21,0.12);
+    backdrop-filter:blur(2px);
 
 }
 
@@ -53,89 +58,189 @@ body{
 
 }
 
-.menu{
+.tab-nav{
 
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-position:relative;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin:15px 0 32px;
+    padding:10px 16px 0;
+    position:relative;
+
+}
+
+.tab-button{
+
+    position:relative;
+    border:none;
+    background:transparent;
+    color:#3a2a1f;
+    padding:12px 18px 14px;
+    font-size:18px;
+    font-weight:600;
+    font-family:Poppins,sans-serif;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    transform:translateY(0);
+    letter-spacing:0.02em;
+
+}
+
+.tab-button::after{
+
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:0;
+    height:3px;
+    border-radius:999px;
+    background:linear-gradient(90deg, #7b4d2e, #d9b38f);
+    transform:scaleX(0);
+    transform-origin:center;
+    transition:transform 0.3s ease;
+
+}
+
+.tab-button:hover{
+
+    color:#2c1a12;
+    transform:translateY(-2px);
+
+}
+
+.tab-button.active{
+
+    color:#2c1a12;
+    text-shadow:0 1px 0 rgba(255,255,255,0.35);
+
+}
+
+.tab-button.active::after{
+
+    transform:scaleX(1);
+
+}
+
+.menu-panel{
+
+    display:none;
+    opacity:0;
+    transform:translateX(25px);
+    transition:opacity 0.35s ease, transform 0.35s ease;
+
+}
+
+.menu-panel.active{
+
+    display:block;
+    opacity:1;
+    transform:translateX(0);
+
+}
+
+.menu-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:30px 35px;
+    position:relative;
+    align-items:start;
 
 }
 
 .column{
 
-padding:20px;
+    padding:20px 15px;
+    position:relative;
+
+}
+
+.column + .column{
+
+    border-left:2px solid rgba(68,68,68,0.7);
 
 }
 
 .column h2{
 
-font-size:45px;
-font-family:'Playfair Display';
-margin-bottom:25px;
+    font-size:38px;
+    font-family:'Playfair Display';
+    margin-bottom:25px;
 
 }
 
 .item{
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin:18px 0;
-font-size:25px;
-font-weight:600;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:55px;
+    margin:18px 0;
+    font-size:22px;
+    font-weight:600;
 
 }
 
 .item span{
 
-flex:1;
-
-}
-
-.dots{
-
-border-bottom:4px dotted #000;
-margin:0 15px;
+    flex:1;
+    min-width:0;
+    padding-right:32px;
 
 }
 
 .price{
 
-width:70px;
-text-align:right;
+    display:flex;
+    justify-content:flex-end;
+    align-items:baseline;
+    gap:5px;
+    min-width:120px;
+    text-align:right;
+    white-space:nowrap;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    margin-left:auto;
+    padding-left:50px;
 
 }
 
-.middle-line{
+.currency{
 
-position:absolute;
-left:50%;
-top:0;
-bottom:0;
-width:2px;
-background:#444;
+    font-size:0.72em;
+    line-height:1;
+    opacity:0.8;
+
+}
+
+.amount{
+
+    line-height:1;
 
 }
 
 .breakfast{
 
-margin-top:70px;
-text-align:center;
+    margin-top:20px;
+    text-align:left;
 
 }
 
 .breakfast h2{
 
-font-size:50px;
-font-family:'Playfair Display';
+    font-size:38px;
+    font-family:'Playfair Display';
+    margin-bottom:18px;
 
 }
 
 .breakfast p{
 
-font-size:40px;
-margin-top:10px;
+    font-size:22px;
+    margin-top:10px;
 
 }
 
@@ -249,9 +354,17 @@ align-items:center;
 
 </div>
 
-<div class="menu">
+<div class="tab-nav" role="tablist" aria-label="Catégories du menu">
 
-<div class="middle-line"></div>
+<button class="tab-button active" type="button" data-target="boissons" aria-selected="true">☕ Boissons</button>
+<button class="tab-button" type="button" data-target="patisserie" aria-selected="false">🍰 Pâtisserie</button>
+<button class="tab-button" type="button" data-target="petit-dej" aria-selected="false">🥪 Formule Petit Déj</button>
+
+</div>
+
+<div class="menu-panel active" id="boissons" role="tabpanel">
+
+<div class="menu-grid">
 
 <div class="column">
 
@@ -259,47 +372,58 @@ align-items:center;
 
 <div class="item">
 <span>Express</span>
-<div class="dots"></div>
-<div class="price">3 DT</div>
+<div class="price"><span class="amount">3,5</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
-<span>Cappuccino</span>
-<div class="dots"></div>
-<div class="price">5 DT</div>
+<span>capucin</span>
+<div class="price"><span class="amount">4</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Café Crème</span>
-<div class="dots"></div>
-<div class="price">5 DT</div>
+<div class="price"><span class="amount">4</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Américain</span>
-<div class="dots"></div>
-<div class="price">4 DT</div>
+<div class="price"><span class="amount">4</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Boisson gazeuse</span>
-<div class="dots"></div>
-<div class="price">4 DT</div>
+<div class="price"><span class="amount">3,5</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Jus Fraise</span>
-<div class="dots"></div>
-<div class="price">7 DT</div>
+<div class="price"><span class="amount">7</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Citronnade</span>
-<div class="dots"></div>
-<div class="price">6 DT</div>
+<div class="price"><span class="amount">6</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>café glacé</span>
+<div class="price"><span class="amount">8</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>mojito</span>
+<div class="price"><span class="amount">5</span><span class="currency">DT</span></div>
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+<div class="menu-panel" id="patisserie" role="tabpanel">
+
+<div class="menu-grid">
 
 <div class="column">
 
@@ -307,49 +431,96 @@ align-items:center;
 
 <div class="item">
 <span>Cheesecake</span>
-<div class="dots"></div>
-<div class="price">9 DT</div>
+<div class="price"><span class="amount">8</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Tiramisu</span>
-<div class="dots"></div>
-<div class="price">9 DT</div>
+<div class="price"><span class="amount">9</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Fraisier</span>
-<div class="dots"></div>
-<div class="price">8 DT</div>
+<div class="price"><span class="amount">8</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
-<span>Croissant</span>
-<div class="dots"></div>
-<div class="price">3 DT</div>
+<span>gâteau pistache</span>
+<div class="price"><span class="amount">10</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
-<span>Cookies</span>
-<div class="dots"></div>
-<div class="price">4 DT</div>
+<span>gâteau noisette</span>
+<div class="price"><span class="amount">10</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>Cookies pistache</span>
+<div class="price"><span class="amount">9</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>gâteau citron</span>
+<div class="price"><span class="amount">10</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>gâteau caramel vanille</span>
+<div class="price"><span class="amount">10</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>Cookies noisette</span>
+<div class="price"><span class="amount">8</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>Cookies classique</span>
+<div class="price"><span class="amount">5</span><span class="currency">DT</span></div>
 </div>
 
 <div class="item">
 <span>Fondant</span>
-<div class="dots"></div>
-<div class="price">8 DT</div>
+<div class="price"><span class="amount">5</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>cake (dattes,citron,marbré)</span>
+<div class="price"><span class="amount">5</span><span class="currency">DT</span></div>
 </div>
 
 </div>
 
 </div>
 
-<div class="breakfast">
+</div>
 
-<h2>🥪 Formule</h2>
+<div class="menu-panel" id="petit-dej" role="tabpanel">
 
-<p>P'tit Déj</p>
+<div class="menu-grid">
+
+<div class="column breakfast">
+
+<h2>🥪 Formule Petit Déj</h2>
+
+<div class="item">
+<span>P'tit Déj classique</span>
+<div class="price"><span class="amount">12</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>P'tit Déj complet</span>
+<div class="price"><span class="amount">15</span><span class="currency">DT</span></div>
+</div>
+
+<div class="item">
+<span>Café + viennoiserie</span>
+<div class="price"><span class="amount">11</span><span class="currency">DT</span></div>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -382,6 +553,33 @@ align-items:center;
 </footer>
 
 </div>
+
+<script>
+
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabPanels = document.querySelectorAll('.menu-panel');
+
+for (const button of tabButtons) {
+
+    button.addEventListener('click', () => {
+
+        const target = button.dataset.target;
+
+        tabButtons.forEach(item => {
+            const isActive = item === button;
+            item.classList.toggle('active', isActive);
+            item.setAttribute('aria-selected', String(isActive));
+        });
+
+        tabPanels.forEach(panel => {
+            panel.classList.toggle('active', panel.id === target);
+        });
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>
